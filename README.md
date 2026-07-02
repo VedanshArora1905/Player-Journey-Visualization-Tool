@@ -2,10 +2,20 @@
 
 This repo contains a web-based tool for exploring **LILA BLACK** player telemetry on top of minimap images: player paths, event markers, timeline playback, and heatmap overlays.
 
-See **[FEATURES.md](FEATURES.md)** for a full explanation of every feature.
+### What it does
+- Loads preprocessed match data from parquet telemetry
+- Renders player paths on the correct minimap (world coordinates → pixels)
+- Distinguishes **humans** (gold) vs **bots** (cyan)
+- Marks kills, deaths, loot, and storm deaths
+- Filters by **map**, **date**, and **match**
+- **Timeline playback** with speed and trail controls
+- **Heatmap** overlays for traffic, kills, and deaths
+
+Additional notes live under `docs/` (dataset schema, coordinate mapping, UI walkthrough).
 
 ### Repository structure
 - `data/`: raw provided dataset (zip + extracted `player_data/` folder)
+- `docs/`: supplementary documentation (requirements, dataset notes, coordinate mapping)
 - `web/`: Next.js (React) application that renders the visualization
 
 ### Prerequisites
