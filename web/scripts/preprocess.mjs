@@ -26,10 +26,6 @@ function isBotUserId(userId) {
   return /^\d+$/.test(userId);
 }
 
-function isDayFolder(name) {
-  return name.startsWith("February_");
-}
-
 function ensureDir(p) {
   fs.mkdirSync(p, { recursive: true });
 }
@@ -232,7 +228,12 @@ async function main() {
 
   console.log(`Wrote ${indexMatches.length} matches to ${outMatches}`);
   console.log(`Wrote index to ${path.join(outRoot, "index.json")}`);
+
+  db.close();
 }
 
-main();
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
 

@@ -2,6 +2,8 @@
 
 This repo contains a web-based tool for exploring **LILA BLACK** player telemetry on top of minimap images: player paths, event markers, timeline playback, and heatmap overlays.
 
+See **[FEATURES.md](FEATURES.md)** for a full explanation of every feature.
+
 ### Repository structure
 - `data/`: raw provided dataset (zip + extracted `player_data/` folder)
 - `web/`: Next.js (React) application that renders the visualization
