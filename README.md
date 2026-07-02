@@ -31,12 +31,25 @@ Specifically it expects:
 - `minimaps/` images
 - `README.md` describing schema + coordinate mapping
 
-### Deployment (free)
-The intended deployment target is **Vercel Free Tier**.
+### Deployment (free — Vercel)
 
-- In the Vercel project settings, set **Root Directory** to `web/`.
-- Build command: `npm run build`
-- Output: Next.js default
+**Recommended settings (Vercel dashboard → Settings → General):**
 
-Important: run `npm run preprocess` locally before deploying so that `web/public/data/` is generated and committed (static assets served by Vercel).
+| Setting | Value |
+|--------|--------|
+| **Root Directory** | `web` |
+| **Framework** | Next.js |
+| **Build Command** | *(leave default — override OFF)* |
+| **Output Directory** | *(leave default — override OFF)* |
+| **Install Command** | *(leave default — override OFF)* |
+
+> **If you see `404: NOT_FOUND`:** Root Directory is almost certainly wrong, or **Output Directory** was overridden manually. Set Root Directory to `web`, turn **off** all command/directory overrides, then **Redeploy** without cache.
+
+1. Run `npm run preprocess` locally so `web/public/data/` and `web/public/minimaps/` exist.
+2. Commit and push those folders to GitHub.
+3. Import repo on [Vercel](https://vercel.com) (free tier).
+4. Set **Root Directory** = `web` before the first deploy (or in Settings → redeploy).
+5. Add your live URL below once it works.
+
+**Live demo:** _(add your Vercel URL here after deploy)_
 
